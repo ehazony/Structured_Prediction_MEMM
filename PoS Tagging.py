@@ -1,10 +1,23 @@
 import pickle
-
+import numpy as np
 START_STATE = '*START*'
 START_WORD = '*START*'
 END_STATE = '*END*'
 END_WORD = '*END*'
 RARE_WORD = '*RARE_WORD*'
+
+
+def load_data(data_path='PoS_data.pickle',
+              words_path='all_words.pickle',
+              pos_path='all_PoS.pickle'):
+    with open('PoS_data.pickle', 'rb') as f:
+        data = pickle.load(f)
+    with open('all_words.pickle', 'rb') as f:
+        words = pickle.load(f)
+    with open('all_PoS.pickle', 'rb') as f:
+        pos = pickle.load(f)
+
+    return data, words, pos
 
 
 def data_example(data_path='PoS_data.pickle',
@@ -59,12 +72,13 @@ class Baseline(object):
         self.pos_tags = pos_tags
         self.words_size = len(words)
         self.pos_size = len(pos_tags)
-        self.pos2i = {pos:i for (i,pos) in enumerate(pos_tags)}
-        self.word2i = {word:i for (i,word) in enumerate(words)}
+        self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
+        self.word2i = {word: i for (i, word) in enumerate(words)}
+        # self.pos_word_prob = self.get_pos_word_probability(training_set)
+        self.tag_word_data = self.data_to_taples(training_set)
 
         # TODO: YOUR CODE HERE
 
-		
     def MAP(self, sentences):
         '''
         Given an iterable sequence of word sequences, return the most probable
@@ -72,11 +86,33 @@ class Baseline(object):
         :param sentences: iterable sequence of word sequences (sentences).
         :return: iterable sequence of PoS tag sequences.
         '''
+        tags = []
+        for sentence in sentences:
+            sentence_tags = []
+            for word in sentence:
+                sentence_tags.append(self.find_max_tag(word))
+            tags.append(sentence_tags)
+        return tags
 
-        # TODO: YOUR CODE HERE
+    def find_max_tag(self, word):
+        """
+        find tag that that discribes the word in the most sences
+        """
+        count = []
+        for tag in self.pos_tags:
+            count.append(self.tag_word_data.count((tag, word)))
+        max_index = np.argmax(np.asarray(count))
+        return self.pos_tags[max_index]
 
-		
-def baseline_mle(training_set, model):
+
+    def data_to_taples(self, data):
+        tag_word_data = []
+        for sentence in data:
+            for i in range(len(sentence[0])):
+                tag_word_data.append((sentence[0][i], sentence[1][i]))
+        return tag_word_data
+
+def baseline_mle(training_set, model:Baseline):
     """
     a function for calculating the Maximum Likelihood estimation of the
     multinomial and emission probabilities for the baseline model.
@@ -88,10 +124,18 @@ def baseline_mle(training_set, model):
             the probabilities in |PoS| and |PoS|x|Words| sized matrices, or
             any other data structure you prefer.
     """
+    tag_word_tapples = model.data_to_taples(training_set)
 
-    # TODO: YOUR CODE HERE
+    e = np.zeros((model.pos_size, model.words_size))
+    for tag, word in tag_word_tapples:
+            e[model.pos2i[tag], model.word2i[word]] +=1
+    sum = e.sum(axis=1)[...,np.newaxis]
+    e =e/ sum
+    return e
 
-		
+
+
+
 class HMM(object):
     '''
     The basic HMM_Model with multinomial transition functions.
@@ -109,11 +153,13 @@ class HMM(object):
         self.pos_tags = pos_tags
         self.words_size = len(words)
         self.pos_size = len(pos_tags)
-        self.pos2i = {pos:i for (i,pos) in enumerate(pos_tags)}
-        self.word2i = {word:i for (i,word) in enumerate(words)}
+        self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
+        self.word2i = {word: i for (i, word) in enumerate(words)}
+        self.e = []
+        self.q = []
+        
 
         # TODO: YOUR CODE HERE
-
 
     def sample(self, n):
         '''
@@ -122,6 +168,7 @@ class HMM(object):
         '''
 
         # TODO: YOUR CODE HERE
+
 
 
     def viterbi(self, sentences):
@@ -133,6 +180,9 @@ class HMM(object):
         '''
 
         # TODO: YOUR CODE HERE
+        for sentance in sentences:
+
+
 
 
 def hmm_mle(training_set, model):
@@ -171,12 +221,11 @@ class MEMM(object):
         self.pos_tags = pos_tags
         self.words_size = len(words)
         self.pos_size = len(pos_tags)
-        self.pos2i = {pos:i for (i,pos) in enumerate(pos_tags)}
-        self.word2i = {word:i for (i,word) in enumerate(words)}
+        self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
+        self.word2i = {word: i for (i, word) in enumerate(words)}
         self.phi = phi
 
         # TODO: YOUR CODE HERE
-
 
     def viterbi(self, sentences, w):
         '''
@@ -206,6 +255,8 @@ def perceptron(training_set, initial_model, w0, eta=0.1, epochs=1):
 
 
 if __name__ == '__main__':
-
-    data_example()
-    # TODO: YOUR CODE HERE
+    data, words, pos = load_data()
+    # todo train test split of data
+    baseline = Baseline(pos, words, data)
+    mle = baseline_mle(data, baseline)
+    print(mle)
