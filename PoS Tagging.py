@@ -136,6 +136,7 @@ def baseline_mle(training_set, model:Baseline):
 
 
 
+
 class HMM(object):
     '''
     The basic HMM_Model with multinomial transition functions.
