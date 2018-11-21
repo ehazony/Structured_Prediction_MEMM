@@ -1,3 +1,4 @@
+import copy
 import pickle
 import numpy as np
 START_STATE = '*START*'
@@ -157,16 +158,30 @@ class HMM(object):
         self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
         self.word2i = {word: i for (i, word) in enumerate(words)}
         self.e = []
-        self.q = []
+        self.t = []
         
 
         # TODO: YOUR CODE HERE
+    def sample_word(self, last_word):
+        """
+        sample a werd from the HMM given the last imeshin was word = last_word
+        """
+        return
 
     def sample(self, n):
         '''
         Sample n sequences of words from the HMM.
         :return: A list of word sequences.
         '''
+        seqence_length = np.random.randint(low= 4, high=12, size=n)
+        seqences= []
+        for i, length in enumerate(seqence_length):
+            seqences[i] = []
+            last_word = "START"
+            for _ in range(length):
+                word = self.sample_word(last_word) # and tag??
+                seqences[i].append(word)
+                last_word = word
 
         # TODO: YOUR CODE HERE
 
@@ -255,6 +270,12 @@ def perceptron(training_set, initial_model, w0, eta=0.1, epochs=1):
     # TODO: YOUR CODE HERE
 
 
+def add_START_to_data(seqenses):
+    seqenses = copy.deepcopy(seqenses)
+    for seqense in seqenses:
+        seqense[0].insert(0,"START")
+        seqense[1].insert(0,"START")
+    return seqenses
 if __name__ == '__main__':
     data, words, pos = load_data()
     # todo train test split of data
