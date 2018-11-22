@@ -158,7 +158,7 @@ class HMM(object):
         self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
         self.word2i = {word: i for (i, word) in enumerate(words)}
         self.training_set = training_set
-        self.e = []
+        self.e = np.array([])
         self.t = {}
         self.q = {}
         self.hmm_mle()
@@ -188,12 +188,8 @@ class HMM(object):
                     sentance[-1] = "END"
                     break
                 trancemition_probabileteys = [self.t[new_tag, old_tag] for new_tag in self.pos_tags]
-                print(np.sum(trancemition_probabileteys))
-                print("the old_tag iis: "+old_tag)
                 old_tag = np.random.choice(self.pos_tags, p=trancemition_probabileteys)
                 emition_probabileteys = self.e[self.pos2i[old_tag],:]
-                print(np.sum(emition_probabileteys))
-
                 word = np.random.choice(self.words, p=emition_probabileteys)
                 while word == "RARE":
                     word = np.random.choice(self.words, p=emition_probabileteys)
@@ -308,7 +304,7 @@ class MEMM(object):
     The base Maximum Entropy Markov Model with log-linear transition functions.
     '''
 
-    def __init__(self, pos_tags, words, training_set, phi):
+    def __init__(self, pos_tags, words, training_set):
         '''
         The init function of the MEMM.
         :param pos_tags: the possible hidden states (POS tags)
@@ -319,6 +315,7 @@ class MEMM(object):
                     the binary feature vector.
         '''
 
+        self.feachers = [self.e_featcher, self.t_featcher]
         self.words = words
         self.pos_tags = pos_tags
         self.words_size = len(words)
@@ -326,6 +323,8 @@ class MEMM(object):
         self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
         self.word2i = {word: i for (i, word) in enumerate(words)}
         self.hmm = HMM(pos_tags, words, training_set)
+        # self.phi_vec = self.map_phi()
+        self.flat_e = self.hmm.e.flatten()
 
 
         # TODO: YOUR CODE HERE
@@ -364,12 +363,56 @@ class MEMM(object):
         return X[::-1]
 
 
-    def phi(self, las_tag, tag, word):
-        pass
+    def map_phi(self):
+        e= self.hmm.e
+        t= self.hmm.t
+        vec = []
+        for tag  in self.pos_tags:
+            vec.extend([t[old_t, tag] for old_t in self.pos_tags])
+        vec.extend(e.flatten())
+
+        vec = np.asarray(vec)
+        thrushold_indexes = vec>0
+        vec[thrushold_indexes] = 1
+        return vec
+
+    def t_featcher(self, las_tag, tag, word):
+        if self.hmm.t[tag, las_tag]> 0 :
+            return self.pos2i[tag]*self.pos_size+self.pos2i[las_tag], len(self.hmm.t)
+        return None,len(self.hmm.t)
+
+    def e_featcher(self,las_tag, tag, word):
+        if self.hmm.e[tag, word]> 0 :
+            return self.pos2i[pos]*self.words_size + self.word2i[word], len(self.flat_e)
+        return None, len(self.flat_e)
+
+
+    def phi_endeces(self, las_tag, tag, word):
+        """:returns list of indexes that are ones in the phi vector"""
+        start_index = 0
+        indeses = []
+        for feacher in self.feachers:
+            indese, size = feacher(las_tag, tag, word)
+            indese+=start_index
+            start_index += size
+            indeses.append(indese)
+        return indeses
+
+    def phi_vec(self, las_tag, tag, word):
+        start_index = 0
+        vec = []
+        for feacher in self.feachers:
+            indese, size = feacher(las_tag, tag, word)
+            vec.extend([0]*size)
+            indese+=start_index
+            start_index += size
+            vec[indese] = 1
+        return np.asarray(vec)
 
     def features_w_exp(self, tag, word, w):
-        phi = np.apply_along_axis(self.phi,arr= np.asarray(self.pos_tags), tag = tag,word =  word,axis=0)
-        x= np.apply_along_axis(lambda i: np.exp(csr_matrix(i) @ w),  arr = phi,axis=0)
+        phi = np.apply_along_axis(self.phi_endeces, arr= np.asarray(self.pos_tags), tag = tag, word =  word, axis=0)
+        # x= np.apply_along_axis(lambda i: np.exp(csr_matrix(i) @ w),  arr = phi,axis=0)
+        x= [np.exp(np.sum(w[i])) for i in phi]
         return x
 
 
@@ -398,7 +441,7 @@ class MEMM(object):
         # TODO: YOUR CODE HERE
 
 
-    def perceptron(self,training_set, initial_model, w0, eta=0.1, epochs=1):
+    def perceptron(self,training_set,  w0, eta=0.1, epochs=1):
         """
         learn the weight vector of a log-linear model according to the training set.
         :param training_set: iterable sequence of sentences and their parts-of-speech.
@@ -410,18 +453,15 @@ class MEMM(object):
         :return: w, the learned weights vector for the MEMM.
         """
         w = [w0]
-
         for sequence in training_set:
             words = np.asarray(sequence[1])
             tags = sequence[0]
             y = self.one_virerbi(words,w[-1])
-            first = sum([self.phi(tags[i-1], tags[i], words[i]) for i in range(1, len(tags)-1)])
-            second = sum([self.phi(y[i-1], y[i], words[i]) for i in range(1, len(tags)-1)])
+            first = sum([self.phi_vec(tags[i - 1], tags[i], words[i]) for i in range(1, len(tags) - 1)])
+            second = sum([self.phi_vec(y[i - 1], y[i], words[i]) for i in range(1, len(tags) - 1)])
             w_i= w[-1] + eta*(first+second)
             w.append(w_i)
         return np.sum(np.asarray(w), axis=1)
-
-
 
 
 
@@ -461,11 +501,11 @@ if __name__ == '__main__':
     test, train = data[:20], data[20:]
     words, pos = parce_data(data, words, pos, 10)
     # todo train test split of data
-    hmm = HMM(pos, words, train)
+    hmm = MEMM(pos, words, train)
     # seq = hmm.sample(1)
     # print(seq)
     # tags = hmm.viterbi(np.array(data)[:len(data)*8//10,1])
-    tags = hmm.viterbi([data[0][1]])
+    tags = hmm.viterbi([data[0][1]], np.random.rand(len(pos)**2+len(pos)*len(words)))
     print(data[0][1])
     print(data[0][0])
     print(tags)
