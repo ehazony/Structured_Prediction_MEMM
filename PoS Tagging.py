@@ -304,7 +304,7 @@ class MEMM(object):
     The base Maximum Entropy Markov Model with log-linear transition functions.
     '''
 
-    def __init__(self, pos_tags, words, training_set):
+    def __init__(self, pos_tags, words, training_set, w0):
         '''
         The init function of the MEMM.
         :param pos_tags: the possible hidden states (POS tags)
@@ -325,27 +325,37 @@ class MEMM(object):
         self.hmm = HMM(pos_tags, words, training_set)
         # self.phi_vec = self.map_phi()
         self.flat_e = self.hmm.e.flatten()
+        self.w = self.perceptron(training_set[:2], w0)
 
 
         # TODO: YOUR CODE HERE
 
 
     def one_virerbi(self, sentence,w):
+        pos_tags = self.pos_tags
+        if "START" in self.pos_tags:
+            pos_tags.remove("START")
+        if "END" in self.pos_tags:
+            pos_tags.remove("END")
 
         sentence2i = {word: i for (i, word) in enumerate(sentence)}
         pos2i = self.pos2i
-        K = self.pos_size
+        K = len(pos_tags)
         T = len(sentence)
         T1 = np.zeros((K, T))
         T2 = np.zeros((K, T))
-        for tag in self.pos_tags:
-            T1[pos2i[tag], 0] = self.e[self.pos2i[tag], self.word2i[sentence[0]]] * self.t[tag, "START"]
+        for tag in pos_tags:
+        #     T1[pos2i[tag], 0] = self.e[self.pos2i[tag], self.word2i[sentence[0]]] * self.t[tag, "START"]
+        #     T2[pos2i[tag], 0] = 0    # for tag in self.pos_tags:
+            T1[pos2i[tag], 0]= np.sum(w[np.where(self.phi_vec("START", tag, sentence[0])==1)])
             T2[pos2i[tag], 0] = 0
 
+
+
         for index in range(1, len(sentence)):
-            for tag in self.pos_tags:
+            for tag in pos_tags:
                 t = T1[:, index - 1]
-                f= self.features_w_exp(sentence, tag, sentence[index])
+                f= self.features_w_exp(tag, sentence[index],w)
                 t_features_w_exp = np.multiply(t,f)
                 max_tag_index = np.argmax(t_features_w_exp)
                 value = np.divide(t_features_w_exp[max_tag_index], np.sum(t_features_w_exp))
@@ -382,21 +392,26 @@ class MEMM(object):
         return None,len(self.hmm.t)
 
     def e_featcher(self,las_tag, tag, word):
-        if self.hmm.e[tag, word]> 0 :
-            return self.pos2i[pos]*self.words_size + self.word2i[word], len(self.flat_e)
+        if self.hmm.e[self.pos2i[tag],self.word2i[word]]> 0 :
+            return self.pos2i[tag]*self.words_size + self.word2i[word], len(self.flat_e)
         return None, len(self.flat_e)
 
 
     def phi_endeces(self, las_tag, tag, word):
         """:returns list of indexes that are ones in the phi vector"""
-        start_index = 0
+        feachers = [self.e_featcher, self.t_featcher]
         indeses = []
-        for feacher in self.feachers:
-            indese, size = feacher(las_tag, tag, word)
-            indese+=start_index
-            start_index += size
-            indeses.append(indese)
-        return indeses
+        for i in range(len(las_tag)):
+            start_index = 0
+            l = []
+            for f in feachers:
+                indese, size = f(las_tag[i], tag, word)
+                if indese is not None:
+                    indese+=start_index
+                    l.append(indese)
+                start_index += size
+            indeses.append(l)
+        return np.asarray(indeses)
 
     def phi_vec(self, las_tag, tag, word):
         start_index = 0
@@ -404,15 +419,21 @@ class MEMM(object):
         for feacher in self.feachers:
             indese, size = feacher(las_tag, tag, word)
             vec.extend([0]*size)
-            indese+=start_index
+            if indese is not None:
+                indese+=start_index
+                vec[indese] = 1
             start_index += size
-            vec[indese] = 1
         return np.asarray(vec)
 
     def features_w_exp(self, tag, word, w):
         phi = np.apply_along_axis(self.phi_endeces, arr= np.asarray(self.pos_tags), tag = tag, word =  word, axis=0)
         # x= np.apply_along_axis(lambda i: np.exp(csr_matrix(i) @ w),  arr = phi,axis=0)
-        x= [np.exp(np.sum(w[i])) for i in phi]
+        x = []
+        for i in phi:
+            if len(i) == 0:
+                x.append(0)
+            else:
+                x.append(np.exp(np.sum(w[i])))
         return x
 
 
@@ -430,9 +451,9 @@ class MEMM(object):
                 sentance.remove("START")
             if (sentance[-1] == "END"):
                 sentance.remove("END")
-            s =self.one_virerbi(sentance)
-            s.insert(0, "END")
-            s.append("START")
+            s =self.one_virerbi(sentance,w)
+            s.insert(0, "START")
+            s.append("END")
             X.append(s)
         return X
 
@@ -454,14 +475,16 @@ class MEMM(object):
         """
         w = [w0]
         for sequence in training_set:
+            print("start training on line: ")
+            print(sequence)
             words = np.asarray(sequence[1])
             tags = sequence[0]
             y = self.one_virerbi(words,w[-1])
             first = sum([self.phi_vec(tags[i - 1], tags[i], words[i]) for i in range(1, len(tags) - 1)])
             second = sum([self.phi_vec(y[i - 1], y[i], words[i]) for i in range(1, len(tags) - 1)])
-            w_i= w[-1] + eta*(first+second)
+            w_i= w[-1] + eta*(first-second)
             w.append(w_i)
-        return np.sum(np.asarray(w), axis=1)
+        return np.sum(np.asarray(w), axis=0)/ len(w)
 
 
 
@@ -501,11 +524,16 @@ if __name__ == '__main__':
     test, train = data[:20], data[20:]
     words, pos = parce_data(data, words, pos, 10)
     # todo train test split of data
-    hmm = MEMM(pos, words, train)
+    memm = MEMM(pos, words, train, np.random.rand(2265270))
     # seq = hmm.sample(1)
     # print(seq)
     # tags = hmm.viterbi(np.array(data)[:len(data)*8//10,1])
-    tags = hmm.viterbi([data[0][1]], np.random.rand(len(pos)**2+len(pos)*len(words)))
+    # tags = hmm.viterbi([data[0][1]], np.random.rand(len(pos)**2+len(pos)*len(words)))
+
+    # w= hmm.perceptron(train,np.random.rand(104202420))
+
+    print("done training perceptron")
+    tags = memm.viterbi([data[0][1]], memm.w)
     print(data[0][1])
     print(data[0][0])
     print(tags)

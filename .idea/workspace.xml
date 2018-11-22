@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8de3b0c5-4e51-41a6-b259-9399709da35c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Structured_Prediction_MEMM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Structured_Prediction_MEMM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PoS Tagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/PoS Tagging.py" afterDir="false" />
     </list>
@@ -14,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Structured_Prediction_MEMM$PoS_Tagging.coverage" NAME="PoS Tagging Coverage Results" MODIFIED="1542893445257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Structured_Prediction_MEMM$PoS_Tagging.coverage" NAME="PoS Tagging Coverage Results" MODIFIED="1542917559229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="2146754546">
@@ -28,23 +26,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="96" />
-          <entry key="py" value="3328" />
+          <entry key="Python Console" value="139" />
+          <entry key="py" value="5201" />
+          <entry key="txt" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3424" />
+          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="Python" value="5340" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
     </session>
@@ -83,34 +83,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PoS Tagging.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="358" column="30" lean-forward="true" selection-start-line="358" selection-start-column="30" selection-end-line="358" selection-end-column="30" />
+            <state relative-caret-position="167">
+              <caret line="437" lean-forward="true" selection-start-line="437" selection-end-line="437" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#13619#14355#0" />
+                <element signature="e#1849#4859#0" />
+                <element signature="e#5902#7068#0" />
+                <element signature="e#7144#8398#0" />
+                <element signature="e#8632#9053#0" />
+                <element signature="e#13231#13536#0" />
                 <element signature="e#14797#14956#0" />
                 <element signature="e#15006#15611#0" />
-                <marker date="1542900292560" expanded="true" signature="13363:13382" ph="..." />
-                <marker date="1542900292560" expanded="true" signature="14494:14499" ph="..." />
+                <marker date="1542917613892" expanded="true" signature="14076:14245" ph="..." />
+                <marker date="1542917613892" expanded="true" signature="14285:14481" ph="..." />
+                <marker date="1542917613892" expanded="true" signature="15102:15441" ph="..." />
+                <marker date="1542917613892" expanded="true" signature="16712:16717" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24945">
-              <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -119,12 +107,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
       <find>n</find>
       <find>sample</find>
       <find>self.t =</find>
       <find>self.t</find>
       <find>self.t[</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,7 +131,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="25" />
     <option name="width" value="960" />
     <option name="height" value="1031" />
@@ -202,7 +190,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\efrai\Anaconda3\python.exe" />
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -234,6 +222,21 @@
       <option name="presentableId" value="Default" />
       <updated>1542694483317</updated>
     </task>
+    <task id="LOCAL-00001" summary="perceptron befor phi()">
+      <created>1542900334639</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542900334639</updated>
+    </task>
+    <task id="LOCAL-00002" summary="perceptron befor phi()2">
+      <created>1542908236698</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542908236699</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -246,19 +249,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="960" height="1031" extended-state="4" />
+    <frame x="-2" y="26" width="1924" height="1036" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.34615386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30604982" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.53736657" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298969" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5887743" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33791524" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3291815" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32875144" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
@@ -269,7 +272,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.4785425" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.47812167" />
       <window_info anchor="right" x="0" y="0" width="431" height="836" id="Documentation" order="4" side_tool="true" weight="0.32977587" />
       <window_info anchor="right" id="Database" order="5" />
     </layout>
@@ -279,6 +282,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="perceptron befor phi()" />
+    <MESSAGE value="perceptron befor phi()2" />
+    <option name="LAST_COMMIT_MESSAGE" value="perceptron befor phi()2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,48 +298,45 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>217</line>
+          <line>213</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>234</line>
+          <line>230</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>226</line>
+          <line>222</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>214</line>
+          <line>210</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="tag == &quot;START&quot;" language="Python" />
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>371</line>
-          <option name="timeStamp" value="90" />
+          <line>356</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="tag_count[tag1] == 0" language="Python" />
+          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
+          <line>296</line>
+          <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>372</line>
-          <option name="timeStamp" value="92" />
+          <line>535</line>
+          <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>370</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>421</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>367</line>
-          <option name="timeStamp" value="95" />
+          <line>486</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -351,6 +356,7 @@
         <watch expression="self.e[self.pos2i[tag],self.word2i[sentence[0]]]" language="Python" />
         <watch expression="T1[pos2i[tag], index]" language="Python" />
         <watch expression="self.pos_tags[max_tag_index]" language="Python" />
+        <watch expression="T1[pos2i[tag], 0]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -404,6 +410,36 @@
     </expressions>
     <expressions id="breakpointCondition">
       <expression>
+        <expression-string>tag_count[tag1] == 0</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tag == &quot;START&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>value == nan</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>word == &quot;START&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>max_tag_index ==nan</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>word ==&quot;START&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>old_tag ==&quot;END&quot;</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -423,23 +459,13 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>tag_count[tag1]==0</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.e[self.pos2i[tag],self.word2i[sentence[0]]] * self.t[tag, &quot;START&quot;]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.q[tag]!=0</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="watch">
+      <expression>
+        <expression-string>T1[pos2i[tag], 0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>self.pos_tags[max_tag_index]</expression-string>
         <language-id>Python</language-id>
@@ -485,11 +511,6 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>T1[:,-1]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="setValue">
       <expression>
@@ -500,32 +521,52 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>e.min()</expression-string>
+        <expression-string>np.sum(np.asarray(w), axis=1)/ len(w)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>e.max()</expression-string>
+        <expression-string>np.asarray(indeses).flatten()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.amax(np.asarray(count))</expression-string>
+        <expression-string>np.asarray(indeses)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.max(np.asarray(count))</expression-string>
+        <expression-string>w[-1] + eta*(first-second)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>max_index = np.max(count)</expression-string>
+        <expression-string>eta*(first-second)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.word2i = {word:i for (i,word) in enumerate(words)}</expression-string>
+        <expression-string>second.max()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>first.max()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>first</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>t_features_w_exp.tolist()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>logsumexp(t_features_w_exp)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -534,21 +575,6 @@
   <component name="editorHistoryManager">
     <entry file="file://C:/ProgramData/Anaconda3/Lib/codecs.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py" />
-    <entry file="file://$PROJECT_DIR$/PoS Tagging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="358" column="30" lean-forward="true" selection-start-line="358" selection-start-column="30" selection-end-line="358" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#13619#14355#0" />
-            <element signature="e#14797#14956#0" />
-            <element signature="e#15006#15611#0" />
-            <marker date="1542900292560" expanded="true" signature="13363:13382" ph="..." />
-            <marker date="1542900292560" expanded="true" signature="14494:14499" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24945">
@@ -556,10 +582,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+    <entry file="file:///usr/lib/python3.6/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="155">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="491" selection-start-line="491" selection-end-line="491" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/numpy/lib/shape_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PoS Tagging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="437" lean-forward="true" selection-start-line="437" selection-end-line="437" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#1849#4859#0" />
+            <element signature="e#5902#7068#0" />
+            <element signature="e#7144#8398#0" />
+            <element signature="e#8632#9053#0" />
+            <element signature="e#13231#13536#0" />
+            <element signature="e#14797#14956#0" />
+            <element signature="e#15006#15611#0" />
+            <marker date="1542917613892" expanded="true" signature="14076:14245" ph="..." />
+            <marker date="1542917613892" expanded="true" signature="14285:14481" ph="..." />
+            <marker date="1542917613892" expanded="true" signature="15102:15441" ph="..." />
+            <marker date="1542917613892" expanded="true" signature="16712:16717" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
