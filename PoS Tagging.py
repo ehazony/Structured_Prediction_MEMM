@@ -1,5 +1,6 @@
 import copy
 import pickle
+import time
 from functools import reduce
 from scipy.misc import logsumexp
 import numpy as np
@@ -325,8 +326,9 @@ class MEMM(object):
         self.hmm = HMM(pos_tags, words, training_set)
         # self.phi_vec = self.map_phi()
         self.flat_e = self.hmm.e.flatten()
-        self.w = self.perceptron(training_set[:2], w0)
-
+        w1, w2= self.perceptron(training_set[:1000], w0)
+        self.w = w1
+        self.w_last= w2
 
         # TODO: YOUR CODE HERE
 
@@ -484,8 +486,17 @@ class MEMM(object):
             second = sum([self.phi_vec(y[i - 1], y[i], words[i]) for i in range(1, len(tags) - 1)])
             w_i= w[-1] + eta*(first-second)
             w.append(w_i)
-        return np.sum(np.asarray(w), axis=0)/ len(w)
+        return np.sum(np.asarray(w), axis=0)/ len(w), w[-1]
 
+import atexit
+from time import time, strftime, localtime
+from datetime import timedelta
+
+def secondsToStr(elapsed=None):
+    if elapsed is None:
+        return strftime("%Y-%m-%d %H:%M:%S", localtime())
+    else:
+        return str(timedelta(seconds=elapsed))
 
 
 def add_START_to_data(seqenses):
@@ -524,16 +535,30 @@ if __name__ == '__main__':
     test, train = data[:20], data[20:]
     words, pos = parce_data(data, words, pos, 10)
     # todo train test split of data
+
+    star_time = time()
     memm = MEMM(pos, words, train, np.random.rand(2265270))
+
+    end_train = time()
+
+    print("done training perceptron")
+    tags = memm.viterbi([data[0][1]], memm.w)
+    tags1 = memm.viterbi([data[0][1]], memm.w_last)
+    print(data[0][1])
+    print(data[0][0])
+    print(tags)
+    print(tags1)
+
+    end_test = time.time()
+
+    print("time it took to train: "+secondsToStr(end_train- star_time))
+    print("time it took to test: "+secondsToStr(end_test - end_train))
+
+
+
     # seq = hmm.sample(1)
     # print(seq)
     # tags = hmm.viterbi(np.array(data)[:len(data)*8//10,1])
     # tags = hmm.viterbi([data[0][1]], np.random.rand(len(pos)**2+len(pos)*len(words)))
 
     # w= hmm.perceptron(train,np.random.rand(104202420))
-
-    print("done training perceptron")
-    tags = memm.viterbi([data[0][1]], memm.w)
-    print(data[0][1])
-    print(data[0][0])
-    print(tags)
