@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8de3b0c5-4e51-41a6-b259-9399709da35c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Structured_Prediction_MEMM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Structured_Prediction_MEMM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PoS Tagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/PoS Tagging.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Structured_Prediction_MEMM$PoS_Tagging.coverage" NAME="PoS Tagging Coverage Results" MODIFIED="1542713347618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Structured_Prediction_MEMM$PoS_Tagging.coverage" NAME="PoS Tagging Coverage Results" MODIFIED="1542893445257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="2146754546">
@@ -45,29 +48,60 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1276014665">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="4" />
+          <entry key="py" value="5568" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="5572" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="5" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PoS Tagging.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="153" column="26" lean-forward="true" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
+            <state relative-caret-position="178">
+              <caret line="421" column="45" lean-forward="true" selection-start-line="421" selection-start-column="45" selection-end-line="421" selection-end-column="45" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1542788114525" expanded="true" signature="3758:3763" ph="..." />
-                <marker date="1542788114525" expanded="true" signature="5593:5614" ph="..." />
-                <marker date="1542788114525" expanded="true" signature="9380:9504" ph="..." />
+                <element signature="e#11537#11696#0" />
+                <marker date="1542893468995" expanded="true" signature="7098:7102" ph="..." />
+                <marker date="1542893468995" expanded="true" signature="11903:11909" ph="..." />
+                <marker date="1542893468995" expanded="true" signature="14161:14166" ph="..." />
+                <marker date="1542893468995" expanded="true" signature="15026:15614" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+        <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="85">
+              <caret line="308" selection-start-line="308" selection-end-line="308" />
             </state>
           </provider>
         </entry>
@@ -75,13 +109,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24945">
+            <state relative-caret-position="100">
               <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+      <find>n</find>
+      <find>sample</find>
+      <find>self.t =</find>
+      <find>self.t</find>
+      <find>self.t[</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,10 +153,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="74" />
-    <option name="y" value="28" />
-    <option name="width" value="1462" />
-    <option name="height" value="842" />
+    <option name="x" value="73" />
+    <option name="y" value="27" />
+    <option name="width" value="1463" />
+    <option name="height" value="843" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -115,6 +168,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,7 +180,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -137,7 +190,7 @@
     <property name="options.lastSelected" value="configurable.group.tools" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -159,9 +212,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\efrai\Anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -193,20 +246,30 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="26" width="1924" height="1036" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16542156" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16842106" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.3291815" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298969" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39977092" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30604982" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.53736657" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3291815" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
@@ -216,7 +279,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.32977587" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.4785425" />
       <window_info anchor="right" x="0" y="0" width="431" height="836" id="Documentation" order="4" side_tool="true" weight="0.32977587" />
       <window_info anchor="right" id="Database" order="5" />
     </layout>
@@ -232,13 +295,194 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
-          <line>95</line>
+          <line>99</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
+          <line>219</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
+          <line>236</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
+          <line>228</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PoS Tagging.py</url>
+          <line>216</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="tag" language="Python" />
+        <watch expression="t" language="Python" />
+        <watch expression="self.e[self.pos2i[tag],self.word2i[sentence[0]]] * self.q[tag]" language="Python" />
+        <watch expression="self.q[tag]" language="Python" />
+        <watch expression="self.e[self.pos2i[tag],self.word2i[sentence[0]]]" language="Python" />
+        <watch expression="T1[pos2i[tag], index]" language="Python" />
+        <watch expression="self.pos_tags[max_tag_index]" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>self.word2i[sentence[0]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag],0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[0,self.word2i[sentence[0]]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.pos2i[tag]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag],self.word2i[sentence[0]]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.t[tag, &quot;START&quot;]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>word != &quot;END&quot; or word != &quot;.&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>old_tag ==&quot;END&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ol</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tag==&quot;DC&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tag==&quot;CD&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tag_count[tag1]==0</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag],self.word2i[sentence[0]]] * self.t[tag, &quot;START&quot;]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.q[tag]!=0</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>self.pos_tags[max_tag_index]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>T1[pos2i[tag], index]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>T1[]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag],self.word2i[sentence[0]]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.q[tag]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.e[self.pos2i[tag],self.word2i[sentence[0]]] * self.q[tag]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>t</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tag</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.pos_tags[max_index]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>T1[:,-1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>{',': 0.0003702256319545857, 'VB': 0.0036405520475534256, 'TO': 0.0037639605915382873, '.': 0.0006787469919167404, 'CD': 0.01088051996133199, 'WRB': 0.007630761636397293, 'JJR': 0.0017894238877804974, '-LRB-': 0.003393734959583702, 'NNS': 0.04391287356794669, 'VBZ': 0.002159649519735083, &quot;''&quot;: 0.0010901088051996134, '$': 0.00020568090664143648, 'VBD': 0.0015631748904749172, 'LS': 0.000761019354573315, 'MD': 0.000761019354573315, 'WP': 0.0041753224048211605, ':': 0.0030235093276291163, 'IN': 0.1350089471194389, 'VBP': 0.0005759065385960221, 'PRP$': 0.009008823710894918, 'PDT': 0.0008021555359016022, 'PRP': 0.0904790308315679, 'RB': 0.05977087147000144, 'NNPS': 0.0019539686130936465, 'SYM': 0.0008021555359016022, 'FW': 0.00016454472531314917, 'DT': 0.23239885641415908, '#': 0.0, 'JJ': 0.04218515395215862, 'RBR': 0.0019539686130936465, '-RRB-': 0.00024681708796972377, 'POS': 0.0, 'JJS': 0.002694419877002818, 'VBG': 0.012340854398486189, 'RP': 0.0, 'EX': 0.007466216911084144, 'RBS': ...</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
       <expression>
         <expression-string>e.min()</expression-string>
@@ -273,30 +517,46 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PoS Tagging.py">
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="153" column="26" lean-forward="true" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1542788114525" expanded="true" signature="3758:3763" ph="..." />
-            <marker date="1542788114525" expanded="true" signature="5593:5614" ph="..." />
-            <marker date="1542788114525" expanded="true" signature="9380:9504" ph="..." />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="131">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24945">
+        <state relative-caret-position="100">
           <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PoS Tagging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="421" column="45" lean-forward="true" selection-start-line="421" selection-start-column="45" selection-end-line="421" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#11537#11696#0" />
+            <marker date="1542893468995" expanded="true" signature="7098:7102" ph="..." />
+            <marker date="1542893468995" expanded="true" signature="11903:11909" ph="..." />
+            <marker date="1542893468995" expanded="true" signature="14161:14166" ph="..." />
+            <marker date="1542893468995" expanded="true" signature="15026:15614" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
