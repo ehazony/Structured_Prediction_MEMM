@@ -3,6 +3,7 @@ import pickle
 from functools import reduce
 from scipy.misc import logsumexp
 import numpy as np
+from scipy.sparse import csr_matrix
 
 START_STATE = '*START*'
 START_WORD = '*START*'
@@ -203,10 +204,7 @@ class HMM(object):
     # TODO: YOUR CODE HERE
 
     def one_virerbi(self, sentence):
-        if(sentence[0]=="START"):
-            sentence.remove("START")
-        if(sentence[-1]=="END"):
-            sentence.remove("END")
+
         sentence2i = {word: i for (i, word) in enumerate(sentence)}
         pos2i = self.pos2i
         K = self.pos_size
@@ -236,8 +234,6 @@ class HMM(object):
             # print("adding tag: "+ self.pos_tags[int(from_index)])
             X.append(self.pos_tags[int(from_index)])
 
-        X.insert(0,"END")
-        X.append("START")
         return X[::-1]
 
     def viterbi(self, sentences):
@@ -250,7 +246,14 @@ class HMM(object):
         # TODO: YOUR CODE HERE
         X = []
         for sentance in sentences:
-            X.append(self.one_virerbi(sentance))
+            if (sentance[0] == "START"):
+                sentance.remove("START")
+            if (sentance[-1] == "END"):
+                sentance.remove("END")
+            s =self.one_virerbi(sentance)
+            s.insert(0, "END")
+            s.append("START")
+            X.append(s)
         return X
     def hmm_mle(self):
         """
@@ -322,58 +325,52 @@ class MEMM(object):
         self.pos_size = len(pos_tags)
         self.pos2i = {pos: i for (i, pos) in enumerate(pos_tags)}
         self.word2i = {word: i for (i, word) in enumerate(words)}
-        self.phi = phi
+        self.hmm = HMM(pos_tags, words, training_set)
 
 
         # TODO: YOUR CODE HERE
 
 
     def one_virerbi(self, sentence,w):
-        if(sentence[0]=="START"):
-            sentence.remove("START")
-        if(sentence[-1]=="END"):
-            sentence.remove("END")
-        # sentence2i = {word: i for (i, word) in enumerate(sentence)}
-        # pos2i = self.pos2i
-        # K = self.pos_size
-        # T = len(sentence)
-        # T1 = np.zeros((K, T))
-        # T2 = np.zeros((K, T))
-        # for tag in self.pos_tags:
-        #     T1[pos2i[tag], 0] = self.e[self.pos2i[tag],self.word2i[sentence[0]]] * self.t[tag, "START"]
-        #     T2[pos2i[tag], 0] = self.t[tag, "START"]
-        #
-        # for index in range(1, len(sentence)):
-        #     for tag_new in self.pos_tags:
-        #         t= T1[:, index - 1]
-        #         p = [self.features(tag_new,self.pos_tags[i], sentence, i) for i in range(self.pos_size)]
-        #         where= np.where(p==1)
-        #         sum =np.sum(w[where])
-        #         expo = np.exp(sum)
-        #
-        #         # alfa/=np.sum(alfa)
-        #
-        #
-        #
-        # #         max_tag_index = np.argmax(alfa)
-        # #         T1[pos2i[tag], index] = alfa[max_tag_index]
-        # #         T2[pos2i[tag], index] = max_tag_index
-        # # max_index = np.argmax(T1[:, -1])
-        #
-        # X = []
-        # # print("adding tag: "+self.pos_tags[max_index])
-        # from_index = max_index
-        # for index in range(T-1, -1,-1):
-        #     from_index = T2[int(from_index), index]
-        #     print("adding tag: "+ self.pos_tags[int(from_index)])
-        #     X.append(self.pos_tags[int(from_index)])
-        #
-        # X.insert(0,"END")
-        # X.append("START")
-        # return X[::-1]
 
-    def features(self, tag_new, param, sentence, i):
+        sentence2i = {word: i for (i, word) in enumerate(sentence)}
+        pos2i = self.pos2i
+        K = self.pos_size
+        T = len(sentence)
+        T1 = np.zeros((K, T))
+        T2 = np.zeros((K, T))
+        for tag in self.pos_tags:
+            T1[pos2i[tag], 0] = self.e[self.pos2i[tag], self.word2i[sentence[0]]] * self.t[tag, "START"]
+            T2[pos2i[tag], 0] = 0
+
+        for index in range(1, len(sentence)):
+            for tag in self.pos_tags:
+                t = T1[:, index - 1]
+                f= self.features_w_exp(sentence, tag, sentence[index])
+                t_features_w_exp = np.multiply(t,f)
+                max_tag_index = np.argmax(t_features_w_exp)
+                value = np.divide(t_features_w_exp[max_tag_index], np.sum(t_features_w_exp))
+                T1[pos2i[tag], index] = value
+                T2[pos2i[tag], index] = max_tag_index
+        max_index = np.argmax(T1[:, -1])
+
+        X = []
+        # print("adding tag: "+self.pos_tags[max_index])
+        from_index = max_index
+        for index in range(T - 1, -1, -1):
+            from_index = T2[int(from_index), index]
+            # print("adding tag: "+ self.pos_tags[int(from_index)])
+            X.append(self.pos_tags[int(from_index)])
+        return X[::-1]
+
+
+    def phi(self, las_tag, tag, word):
         pass
+
+    def features_w_exp(self, tag, word, w):
+        phi = np.apply_along_axis(self.phi,arr= np.asarray(self.pos_tags), tag = tag,word =  word,axis=0)
+        x= np.apply_along_axis(lambda i: np.exp(csr_matrix(i) @ w),  arr = phi,axis=0)
+        return x
 
 
     def viterbi(self, sentences, w):
@@ -384,26 +381,48 @@ class MEMM(object):
         :param w: a dictionary that maps a feature index to it's weight.
         :return: iterable sequence of POS tag sequences.
         '''
-
+        X = []
+        for sentance in sentences:
+            if (sentance[0] == "START"):
+                sentance.remove("START")
+            if (sentance[-1] == "END"):
+                sentance.remove("END")
+            s =self.one_virerbi(sentance)
+            s.insert(0, "END")
+            s.append("START")
+            X.append(s)
+        return X
 
 
 
         # TODO: YOUR CODE HERE
 
 
-def perceptron(self,training_set, initial_model, w0, eta=0.1, epochs=1):
-    """
-    learn the weight vector of a log-linear model according to the training set.
-    :param training_set: iterable sequence of sentences and their parts-of-speech.
-    :param initial_model: an initial MEMM object, containing among other things
-            the phi feature mapping function.
-    :param w0: an initial weights vector.
-    :param eta: the learning rate for the perceptron algorithm.
-    :param epochs: the amount of times to go over the entire training data (default is 1).
-    :return: w, the learned weights vector for the MEMM.
-    """
-    pass
-    # TODO: YOUR CODE HERE
+    def perceptron(self,training_set, initial_model, w0, eta=0.1, epochs=1):
+        """
+        learn the weight vector of a log-linear model according to the training set.
+        :param training_set: iterable sequence of sentences and their parts-of-speech.
+        :param initial_model: an initial MEMM object, containing among other things
+                the phi feature mapping function.
+        :param w0: an initial weights vector.
+        :param eta: the learning rate for the perceptron algorithm.
+        :param epochs: the amount of times to go over the entire training data (default is 1).
+        :return: w, the learned weights vector for the MEMM.
+        """
+        w = [w0]
+
+        for sequence in training_set:
+            words = np.asarray(sequence[1])
+            tags = sequence[0]
+            y = self.one_virerbi(words,w[-1])
+            first = sum([self.phi(tags[i-1], tags[i], words[i]) for i in range(1, len(tags)-1)])
+            second = sum([self.phi(y[i-1], y[i], words[i]) for i in range(1, len(tags)-1)])
+            w_i= w[-1] + eta*(first+second)
+            w.append(w_i)
+        return np.sum(np.asarray(w), axis=1)
+
+
+
 
 
 def add_START_to_data(seqenses):
